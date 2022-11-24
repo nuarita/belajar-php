@@ -14,8 +14,9 @@ if (isset($_POST['submit'])){
     // 2. Cek Koneksi dengan mysql
     if (mysqli_connect_errno()) {
         echo "Koneksi Gagal" . mysqli_connect_error();
+        exit();
     }else{
-        echo 'Koneksi Berhasil';
+        echo '';
     }
     //buat sql query untuk insert ke data base
     //buat query insert dan jalankan
@@ -24,7 +25,7 @@ if (isset($_POST['submit'])){
 
     //jalankan querynya
     if (mysqli_query($con,$sql)) {
-        echo "Data Berhasil Ditambahkan";
+        echo "<br>Data Berhasil Ditambahkan";
     } else {
         echo "Ada Error ". $sql . "<br>" . mysqli_error($con);
     }
@@ -43,6 +44,7 @@ if (isset($_POST['submit'])){
     <title>Tambah Data Mahasiswa</title>
 </head>
 <body>
+    <h1>Tambah Data Mahasiswa</h1>
     <form action="" method="post">
         NIM: <input type="text" name="nim"><br>
         Nama: <input type="text" name="nama"><br>
